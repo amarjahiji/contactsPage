@@ -16,6 +16,8 @@ public class NewContact extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.newcontact);
 
+
+
         firstName = findViewById(R.id.firstName);
         lastName = findViewById(R.id.lastName);
         phoneNumber = findViewById(R.id.phoneNumber);
@@ -23,20 +25,24 @@ public class NewContact extends AppCompatActivity {
         savebutton=findViewById(R.id.savebutton);
         dismissbutton=findViewById(R.id.dismissbutton);
 
-        savebutton.setOnClickListener(v -> {
+        dismissbutton.setOnClickListener(v1 -> {
+            Intent intent = new Intent(NewContact.this, MainActivity.class);
+            startActivity(intent);
+        });
 
-            ContactModel contactModel;
-            contactModel= new ContactModel(firstName.getText().toString(),lastName.getText().toString(),phoneNumber.getText().toString(),email.getText().toString());
-            Toast.makeText(NewContact.this,contactModel.toString(), Toast.LENGTH_SHORT).show();
+        savebutton.setOnClickListener(v -> {
+            ContactModel contactModel = new ContactModel(firstName.getText().toString(),lastName.getText().toString(),phoneNumber.getText().toString(),email.getText().toString());
 
 
             DatabaseHelper databaseHelper = new DatabaseHelper(NewContact.this);
             boolean test = databaseHelper.add(contactModel);
-            Toast.makeText(NewContact.this, "test" + test, Toast.LENGTH_SHORT);
+            Toast.makeText(NewContact.this, "test" + test, Toast.LENGTH_SHORT).show();
         {
             Intent intent = new Intent(NewContact.this, MainActivity.class);
             startActivity(intent);
-        };
+        }
+
+
 //
 //            if (firstname.isEmpty()) {
 //                        Toast.makeText(NewContact.this, "First name cannot be empty", Toast.LENGTH_SHORT).show();
@@ -51,11 +57,6 @@ public class NewContact extends AppCompatActivity {
 //                        DatabaseHelper databaseHelper = new DatabaseHelper(NewContact.this);
 //                    }
 //                });
-//
-//
-//            dismissbutton.setOnClickListener(v ->
-//            {
-//                Intent intent = new Intent(NewContact.this, MainActivity.class);
-//                startActivity(intent);
-            });
+
+    });
 }}

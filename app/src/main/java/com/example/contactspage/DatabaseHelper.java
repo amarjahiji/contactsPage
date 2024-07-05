@@ -85,6 +85,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -148,6 +149,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         cursor.getString(cursor.getColumnIndexOrThrow(COLUMNEMAIL))
                 );
                 arrayList.add(contactModel);
+                Log.d("DatabaseHelper","Contact retrieved: " +contactModel.toString());
             } while (cursor.moveToNext());
         }
         cursor.close();

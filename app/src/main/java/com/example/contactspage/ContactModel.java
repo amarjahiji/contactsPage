@@ -1,5 +1,7 @@
 package com.example.contactspage;
 
+import androidx.annotation.NonNull;
+
 public class ContactModel {
     private String firstname;
     private String lastname;
@@ -16,6 +18,7 @@ public class ContactModel {
     public ContactModel() {
     }
 
+    @NonNull
     public String toString(){
         return "ContactModel{"+
                 "firstname=" + firstname +

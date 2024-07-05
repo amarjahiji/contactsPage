@@ -38,7 +38,7 @@ String lastname = contactModel.getLastname();
 String number = contactModel.getPhonenumber();
 String email = contactModel.getEmail();
 
-holder.contactName.setText(firstname);
+holder.contactName.setText(firstname + " " + lastname);
 holder.contactIcon.setImageResource(R.drawable.person_male_svgrepo_com);
 holder.infoIcon.setImageResource(R.drawable.plus_circle_svgrepo_com);
 //holder.infoIcon.setOnClickListener(new View.OnClickListener() {
