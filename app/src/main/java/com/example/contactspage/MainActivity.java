@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageButton plusbutton;
+    private ImageButton plusbutton, infoIcon;
     private RecyclerView recyclerView;
     private DatabaseHelper databaseHelper;
     private ContactAdapter contactAdapter;
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+
         loadData();
     }
 
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(contactAdapter);
         contactAdapter.notifyDataSetChanged();
     }
+
 @Override
     protected void onResume(){
         super.onResume();

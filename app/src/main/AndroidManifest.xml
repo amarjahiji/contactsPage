@@ -25,6 +25,7 @@
         <activity android:name="ContactModel"/>
         <activity android:name="ContactAdapter"/>
         <activity android:name="DatabaseHelper"/>
+        <activity android:name=".ContactDetails"/>
     </application>
 
 </manifest>

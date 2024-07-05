@@ -1,9 +1,9 @@
 package com.example.contactspage;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -40,13 +40,14 @@ String email = contactModel.getEmail();
 
 holder.contactName.setText(firstname + " " + lastname);
 holder.contactIcon.setImageResource(R.drawable.person_male_svgrepo_com);
-holder.infoIcon.setImageResource(R.drawable.plus_circle_svgrepo_com);
-//holder.infoIcon.setOnClickListener(new View.OnClickListener() {
-//    @Override
-//    public void onClick(View v) {
-//
-//    }
-//});
+holder.infoIcon.setImageResource(R.drawable.info_circle_svgrepo_com);
+
+holder.infoIcon.setOnClickListener(v -> {
+    Intent intent = new Intent(context, ContactDetails.class);
+    intent.putExtra("contactName", contactModel.getFirstname() + " " + contactModel.getLastname());
+    context.startActivity(intent);
+});
+
     }
 
     @Override
