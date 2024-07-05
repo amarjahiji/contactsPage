@@ -22,6 +22,9 @@
             </intent-filter>
         </activity>
         <activity android:name="NewContact"/>
+        <activity android:name="ContactModel"/>
+        <activity android:name="ContactAdapter"/>
+        <activity android:name="DatabaseHelper"/>
     </application>
 
 </manifest>
