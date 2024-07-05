@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="5sp">
 
-</androidx.cardview.widget.CardView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/contactIcon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/person_male_svgrepo_com" />
+
+    <TextView
+        android:id="@+id/contactName"
+        android:layout_width="293dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_toEndOf="@id/contactIcon"
+        android:text="Contact Name"
+        android:textSize="30dp" />
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/infoIcon"
+        app:srcCompat="@drawable/info_circle_svgrepo_com"
+        android:layout_toRightOf="@+id/contactName"
+        />
+
+</RelativeLayout>
+
+    </androidx.cardview.widget.CardView>

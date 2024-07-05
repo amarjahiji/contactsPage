@@ -1,23 +1,20 @@
 package com.example.contactspage;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.LayoutInflater;
-import androidx.appcompat.app.AlertDialog;
 
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton plusbutton;
     private RecyclerView recyclerView;
-    private LayoutInflater inflater;
-    private View dialog;
-    private EditText firstname, lastname, number, email;
+    private DatabaseHelper databaseHelper;
+    private ContactAdapter contactAdapter;
+
 
 
     @Override
@@ -25,32 +22,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-            plusbutton=findViewById(R.id.plusbutton);
-                    recyclerView=findViewById(R.id.recyclerView);
+        databaseHelper = new DatabaseHelper(this);
 
-                    plusbutton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            alertDialog();
-                        }
-                    });
-        }
+        plusbutton = findViewById(R.id.plusbutton);
+        recyclerView = findViewById(R.id.recyclerView);
 
-        private void alertDialog(){
-            inflater = LayoutInflater.from ( this);
-            dialog = inflater.inflate(R.layout.alertdialogbox, null );
-            firstname = dialog.findViewById(R.id.firstName);
-            lastname =dialog.findViewById(R.id.lastName) ;
-            number = dialog.findViewById(R.id.number);
-            email = dialog.findViewById(R.id.email);
+        plusbutton.setOnClickListener(v ->
+        {
+            Intent intent = new Intent(MainActivity.this, NewContact.class);
+            startActivity(intent);
+        });
 
-            new AlertDialog.Builder(this)
-                    .setTitle("Enter your details")
-                    .setView(dialog);
-
-        }
-
-
-
-
+        loadData();
     }
+
+    private void loadData() {
+        ArrayList<ContactModel> contactList = databaseHelper.getAllData();
+        contactAdapter = new ContactAdapter(this, contactList);
+        recyclerView.setAdapter(contactAdapter);
+    }
+@Override
+    protected void onResume(){
+        super.onResume();
+        loadData();
+}
+}
+
