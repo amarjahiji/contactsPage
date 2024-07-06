@@ -8,63 +8,111 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <ImageView
-            android:id="@+id/cicon"
+        android:layout_height="888dp"
+        android:orientation="vertical"
+        tools:ignore="UselessParent"
+        android:background="@color/white">
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="100sp"
-            android:src="@mipmap/ic_launcher"
-            android:scaleType="fitXY"/>
+            android:layout_height="221dp"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/cicon"
+                android:layout_width="181dp"
+                android:layout_height="119dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="104dp"
+                android:layout_marginTop="76dp"
+                android:layout_marginEnd="126dp"
+                android:layout_marginBottom="26dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/person_male_svgrepo_com" />
+
+            <Button
+                android:id="@+id/backbutton"
+                android:layout_width="150dp"
+                android:layout_height="68dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="-1dp"
+                android:layout_marginEnd="262dp"
+                android:layout_marginBottom="153dp"
+                android:backgroundTint="#00FFFFFF"
+                android:fontFamily="@font/nunito_semibold"
+                android:text="Back"
+                android:textAlignment="viewStart"
+                android:textColor="#3699EF"
+                android:textSize="23sp" />
+        </RelativeLayout>
+
+
         <TextView
             android:id="@+id/contactName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="CONTACT"
-            android:textStyle="bold"
-            android:textSize="16sp"
             android:layout_gravity="center"
-            android:layout_marginTop="5sp"
-            android:layout_marginBottom="5sp"/>
-
+            android:layout_marginTop="30sp"
+            android:layout_marginBottom="5sp"
+            android:fontFamily="@font/nunito_semibold"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            tools:text="CONTACT NAME" />
 
 
         <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10sp"
-            android:stretchColumns="2">
-            <TableRow>
+            android:layout_width="424dp"
+            android:layout_height="156dp"
+            android:layout_marginTop="50dp"
+            android:backgroundTint="@color/white"
+            android:padding="20sp"
+            android:stretchColumns="2"
+            android:background="@color/blue">
+
+
+            <TableRow
+                android:layout_width="397dp"
+                android:layout_height="100dp">
+
                 <TextView
-                    android:text="Phone"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    />
-                
+                    android:fontFamily="@font/nunito_semibold"
+                    android:text="Phone:"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
                 <TextView
-                    android:id="@+id/cpnumber"
-                    tools:text="0177000800"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:padding="5sp"
+                    android:id="@+id/contactNumber"
                     android:layout_marginStart="10sp"
-                   
-                    />
+                    android:fontFamily="@font/nunito_sans_extralight"
+                    android:padding="5sp"
+                    android:textSize="27sp"
+                    tools:text="0177000800" />
             </TableRow>
-            <TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="30dp">
+
                 <TextView
-                    android:text="Email"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-            />
+                    android:fontFamily="@font/nunito_semibold"
+                    android:text="Email:"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
                 <TextView
-                    android:id="@+id/cemail"
-                    tools:text="jowel@gmail.com"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:padding="5sp"
+                    android:id="@+id/contactEmail"
+                    android:layout_width="237dp"
                     android:layout_marginStart="10sp"
-                    />
+                    android:fontFamily="@font/nunito_sans_extralight"
+                    android:padding="5sp"
+                    android:textSize="22sp"
+                    tools:text="pasdfgl@gmail.com" />
             </TableRow>
 
         </TableLayout>

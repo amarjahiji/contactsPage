@@ -7,63 +7,24 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="270dp"
-        android:minHeight="60dp"
-        android:text="New Contact"
-        android:textAlignment="center"
-        android:textSize="34sp"
-        android:textStyle="bold" />
-
-
-    <EditText
-        android:id="@+id/firstName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="First Name: "
-        android:minHeight="48dp"
-        android:textColor="#673AB7"
-        />
-
-    <EditText
-        android:id="@+id/lastName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Last Name:"
-        android:minHeight="48dp"
-        android:textColor="#673AB7" />
-
-    <EditText
-        android:id="@+id/phoneNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Phone Number: (e.x +38970855904)"
-        android:minHeight="48dp"
-        android:textColor="#673AB7" />
-
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="E-mail:"
-        android:minHeight="48dp"
-        android:textColor="#673AB7" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="378dp"
-        android:layout_height="72dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<!--        android:layout_marginLeft="-16dp"-->
+<!--        android:layout_marginRight="-14dp"-->
+
 
         <Button
             android:id="@+id/dismissbutton"
             android:layout_width="122dp"
             android:layout_height="50dp"
             android:layout_marginStart="4dp"
-            android:text="Dismiss"
+            android:backgroundTint="#00FFFFFF"
+            android:fontFamily="@font/nunito_semibold"
+            android:text="Cancel"
+            android:textAlignment="viewStart"
+            android:textColor="#898A8B"
             android:textSize="20sp"
-            android:textStyle="bold"
             app:cornerRadius="@dimen/cardview_default_radius"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -73,16 +34,68 @@
             android:id="@+id/savebutton"
             android:layout_width="112dp"
             android:layout_height="49dp"
+            android:backgroundTint="#00FFFFFF"
+            android:fontFamily="@font/nunito_semibold"
             android:text="Save"
+            android:textAlignment="viewEnd"
+            android:textColor="#328EFF"
             android:textSize="20sp"
             android:textStyle="bold"
             app:cornerRadius="@dimen/cardview_default_radius"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/dismissbutton"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.478" />
+            app:layout_constraintVertical_bias="0.521" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_semibold"
+        android:minHeight="60dp"
+        android:text="New Contact"
+        android:textAlignment="center"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/firstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="First Name: "
+        android:minHeight="48dp"
+        android:textColor="#000000" />
+
+    <EditText
+        android:id="@+id/lastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Last Name:"
+        android:minHeight="48dp"
+        android:textColor="#000000"
+        />
+
+    <EditText
+        android:id="@+id/phoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number: (e.x +38970855904)"
+        android:minHeight="48dp"
+        android:textColor="#000000"
+        android:layout_marginBottom="2dp"/>
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="E-mail:"
+        android:minHeight="48dp"
+        android:textColor="#000000"
+        android:layout_marginTop="2dp"/>
+
+
 
 </LinearLayout>

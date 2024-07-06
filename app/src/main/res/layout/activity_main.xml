@@ -8,39 +8,183 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <SearchView
+        android:id="@+id/searchbar"
+        android:layout_width="400dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="8dp"  android:layout_marginBottom="24dp"  android:iconifiedByDefault="false"
+        android:queryHint="Search contacts..."
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.363"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        app:layout_constraintVertical_bias="0.0" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="393dp"
+        android:layout_height="676dp"
+        android:layout_marginTop="40dp"  android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="VisualLintBounds">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
+            android:layout_width="391dp"
             android:layout_height="match_parent"
-            tools:listitem="@layout/contactsrows"
-        />
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp"
+            tools:listitem="@layout/contactsrows" />
 
-        <ImageButton
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="400dp"
+        android:layout_height="99dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="VisualLintBounds">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8sp"
+            android:fontFamily="@font/nunito_semibold"
+            android:text="Contacts"
+            android:textAlignment="viewStart"
+            android:textSize="48sp"
+            android:textStyle="bold" />
+
+        <Button
             android:id="@+id/plusbutton"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_alignParentStart="true"
+            android:layout_width="105dp"
+            android:layout_height="117dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="303dp"
-            android:layout_marginTop="784dp"
-            android:layout_marginEnd="38dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="-44dp"
+            android:layout_marginEnd="-9dp"
+            android:layout_marginBottom="28dp"  android:layout_toEndOf="@+id/title"
+            android:backgroundTint="#00FFFFFF"
             android:contentDescription="@string/todo"
-            app:srcCompat="@drawable/plus_circle_svgrepo_com" />
-    </RelativeLayout>
+            android:fontFamily="@font/nunito_sans_extralight"
+            android:text="+"
+            android:textColor="@color/blue"
+            android:textSize="90sp"
+            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+        <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.constraintlayout.widget.ConstraintLayout-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    android:id="@+id/main"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".MainActivity">-->
+
+<!--    <SearchView-->
+<!--        android:id="@+id/searchbar"-->
+<!--        android:layout_width="400dp"-->
+<!--        android:layout_height="41dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginBottom="8dp"-->
+<!--        android:iconifiedByDefault="false"-->
+<!--        android:queryHint="Search contacts..."-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.363"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/header"-->
+<!--        app:layout_constraintVertical_bias="0.0" />-->
+
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/relativeLayout"-->
+<!--        android:layout_width="393dp"-->
+<!--        android:layout_height="676dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/header"-->
+<!--        app:layout_constraintVertical_bias="1.0"-->
+<!--        tools:ignore="VisualLintBounds">-->
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/recyclerView"-->
+<!--            android:layout_width="391dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginTop="0dp"-->
+<!--            android:layout_marginBottom="0dp"-->
+<!--            tools:listitem="@layout/contactsrows" />-->
+
+<!--    </RelativeLayout>-->
+
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/header"-->
+<!--        android:layout_width="400dp"-->
+<!--        android:layout_height="99dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:ignore="VisualLintBounds">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/title"-->
+<!--            android:layout_width="283dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="8sp"-->
+<!--            android:fontFamily="@font/nunito_semibold"-->
+<!--            android:text="Contacts"-->
+<!--            android:textAlignment="viewStart"-->
+<!--            android:textSize="48sp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/plusbutton"-->
+<!--            android:layout_width="105dp"-->
+<!--            android:layout_height="117dp"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginStart="15dp"-->
+<!--            android:layout_marginTop="-44dp"-->
+<!--            android:layout_marginEnd="-9dp"-->
+<!--            android:layout_marginBottom="28dp"-->
+<!--            android:layout_toEndOf="@+id/title"-->
+<!--            android:backgroundTint="#00FFFFFF"-->
+<!--            android:contentDescription="@string/todo"-->
+<!--            android:fontFamily="@font/nunito_sans_extralight"-->
+<!--            android:text="+"-->
+<!--            android:textColor="@color/blue"-->
+<!--            android:textSize="90sp"-->
+<!--            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />-->
+
+<!--    </RelativeLayout>-->
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->

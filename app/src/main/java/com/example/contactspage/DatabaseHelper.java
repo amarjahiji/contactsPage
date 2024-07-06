@@ -76,4 +76,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return arrayList;
     }
-}
+    public ArrayList<ContactModel> searchContacts(String searchTerm) {
+        ArrayList<ContactModel> filteredList = new ArrayList<>();
+        String selectQuery = "SELECT * FROM " + CONTACT +
+                " WHERE LOWER(FNAME) LIKE '%" + searchTerm + "%'" +
+                " OR LOWER(LNAME) LIKE '%" + searchTerm + "%'";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                ContactModel contactModel = new ContactModel(
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMNFNAME)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMNLNAME)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMNPNUMBER)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMNEMAIL))
+                );
+                filteredList.add(contactModel);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+
+        return filteredList;
+}}

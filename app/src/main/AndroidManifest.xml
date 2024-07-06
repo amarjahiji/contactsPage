@@ -26,6 +26,10 @@
         <activity android:name="ContactAdapter"/>
         <activity android:name="DatabaseHelper"/>
         <activity android:name=".ContactDetails"/>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

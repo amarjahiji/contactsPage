@@ -54,14 +54,18 @@ public class NewContact extends AppCompatActivity {
             DatabaseHelper databaseHelper = new DatabaseHelper(NewContact.this);
             boolean success = databaseHelper.add(contactModel);
 
-            String toastMessage = success ? "Contact saved successfully!" : "Failed to save contact.";
-            Toast.makeText(NewContact.this, toastMessage, Toast.LENGTH_SHORT).show();
+//            String toastMessage = success ? "Contact saved successfully!" : "Failed to save contact.";
+//            Toast.makeText(NewContact.this, toastMessage, Toast.LENGTH_SHORT).show();
 
             if (success) {
                 firstName.setText("");
                 lastName.setText("");
                 phoneNumber.setText("");
                 email.setText("");
+            }
+            else {
+                Toast.makeText(NewContact.this, "Failed to save contact.", Toast.LENGTH_SHORT).show();
+
             }
         });
     }

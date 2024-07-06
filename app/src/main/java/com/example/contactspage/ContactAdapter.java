@@ -1,6 +1,7 @@
 package com.example.contactspage;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,21 +33,26 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
 
     @Override
     public void onBindViewHolder(@NonNull ContactViewHolder holder, int position) {
-ContactModel contactModel= contactList.get(position);
-String firstname = contactModel.getFirstname();
-String lastname = contactModel.getLastname();
-String number = contactModel.getPhonenumber();
-String email = contactModel.getEmail();
+            ContactModel contactModel = contactList.get(position);
+            String firstname = contactModel.getFirstname();
+            String lastname = contactModel.getLastname();
+            String phonenumber = contactModel.getPhonenumber();
+            String email = contactModel.getEmail();
 
-holder.contactName.setText(firstname + " " + lastname);
-holder.contactIcon.setImageResource(R.drawable.person_male_svgrepo_com);
-holder.infoIcon.setImageResource(R.drawable.info_circle_svgrepo_com);
+        holder.contactName.setText(firstname + " " + lastname);
+        holder.contactIcon.setImageResource(R.drawable.person_male_svgrepo_com);
+        holder.infoIcon.setImageResource(R.drawable.inffoo);
+//
 
-holder.infoIcon.setOnClickListener(v -> {
-    Intent intent = new Intent(context, ContactDetails.class);
-    intent.putExtra("contactName", contactModel.getFirstname() + " " + contactModel.getLastname());
-    context.startActivity(intent);
-});
+        holder.infoIcon.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ContactDetails.class);
+            intent.putExtra("contactName", contactModel.getFirstname() + " " + contactModel.getLastname());
+            intent.putExtra("phonenumber", phonenumber);
+            intent.putExtra("email", email);
+            context.startActivity(intent);
+
+
+        });
 
     }
 
@@ -55,16 +61,25 @@ holder.infoIcon.setOnClickListener(v -> {
         return contactList.size();
     }
 
-    class ContactViewHolder extends RecyclerView.ViewHolder{
+    public void updateList(ArrayList<ContactModel> newList) {
+        this.contactList.clear();
+        this.contactList.addAll(newList);
+        notifyDataSetChanged();
+    }
+
+
+     class ContactViewHolder extends RecyclerView.ViewHolder{
 
         ImageView contactIcon, infoIcon;
-        TextView contactName;
+        TextView contactName, contactEmail, contactNumber;
         public ContactViewHolder(@NonNull View itemView) {
             super(itemView);
 
             contactIcon = itemView.findViewById(R.id.contactIcon);
             infoIcon=itemView.findViewById(R.id.infoIcon);
             contactName=itemView.findViewById(R.id.contactName);
+            contactEmail=itemView.findViewById(R.id.contactEmail);
+            contactNumber=itemView.findViewById(R.id.contactNumber);
         }
     }
 }

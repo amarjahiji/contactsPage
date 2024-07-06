@@ -1,38 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="60dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardUseCompatPadding="true"
-    app:cardElevation="5sp">
+    android:outlineAmbientShadowColor="@color/black"
+    >
+
+    <View  android:layout_width="match_parent"
+        android:layout_height="0.5dp"  android:background="@color/grey" />
+
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:contentDescription="TODO"
+        android:importantForAccessibility="no"
+        android:paddingTop="8dp"
+        android:paddingBottom="-10dp">
 
-    <ImageView
-        android:id="@+id/contactIcon"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        app:srcCompat="@drawable/person_male_svgrepo_com" />
+        <ImageView
+            android:id="@+id/contactIcon"
+            android:layout_width="25dp"
+            android:layout_height="31dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="16dp"
+            app:srcCompat="@drawable/person_male_svgrepo_com" />
 
-    <TextView
-        android:id="@+id/contactName"
-        android:layout_width="293dp"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_toEndOf="@id/contactIcon"
-        android:text="Contact Name"
-        android:textSize="30dp" />
+        <TextView
+            android:id="@+id/contactName"
+            android:layout_width="293dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_toEndOf="@id/contactIcon"
+            android:fontFamily="@font/nunito_sans_extralight"
+            android:text="Contact Name"
+            android:textSize="30sp"
+            tools:ignore="HardcodedText" />
 
-    <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:id="@+id/infoIcon"
-        app:srcCompat="@drawable/info_circle_svgrepo_com"
-        android:layout_toRightOf="@+id/contactName"
-        />
+        <ImageView
+            android:id="@+id/infoIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/contactName"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="11dp"
+            android:layout_toEndOf="@+id/contactName"
+            app:srcCompat="@drawable/inffoo"
+            tools:ignore="ImageContrastCheck" />
 
-</RelativeLayout>
+    </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
+
