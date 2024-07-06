@@ -8,6 +8,7 @@ public class ContactModel {
     private String phonenumber;
     private String Email;
 
+    //constructor
     public ContactModel(String firstname, String lastname,String phonenumber, String Email){
         this.firstname = firstname;
         this.lastname=lastname;
@@ -15,6 +16,8 @@ public class ContactModel {
         this.Email=Email;
     }
 
+
+    //empty constructor because apparently android rewuires it
     public ContactModel() {
     }
 
@@ -28,6 +31,8 @@ public class ContactModel {
                 '}';
     }
 
+
+    //setters getters
     public String getFirstname() {
         return firstname;
     }

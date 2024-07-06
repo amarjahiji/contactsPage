@@ -3,15 +3,12 @@ package com.example.contactspage;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ContactDetails extends AppCompatActivity {
 
     private TextView contactName, contactNumber, contactEmail;
-    private ImageView cicon;
     private Button back;
     @Override
     protected void  onCreate(Bundle savedIntanceState){
@@ -22,7 +19,6 @@ public class ContactDetails extends AppCompatActivity {
         contactName = findViewById(R.id.contactName);
         contactNumber=findViewById(R.id.contactNumber);
         contactEmail=findViewById(R.id.contactEmail);
-        cicon=findViewById(R.id.cicon);
 
         back.setOnClickListener(v ->
         {

@@ -1,7 +1,6 @@
 package com.example.contactspage;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,14 +8,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-
 import java.util.ArrayList;
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHolder> {
 
     private Context context;
     private ArrayList<ContactModel> contactList;
+
 
     public ContactAdapter(Context context, ArrayList<ContactModel> contactList) {
         this.context=context;
@@ -31,7 +29,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         return vh;
     }
 
-    @Override
+    @Override //This method is called to bind data to a viewholder at a specific position
     public void onBindViewHolder(@NonNull ContactViewHolder holder, int position) {
             ContactModel contactModel = contactList.get(position);
             String firstname = contactModel.getFirstname();
@@ -56,11 +54,12 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
 
     }
 
-    @Override
+    @Override //total number of items in db
     public int getItemCount() {
         return contactList.size();
     }
 
+    //method for updating the list of contacts that are displaying in the adapter
     public void updateList(ArrayList<ContactModel> newList) {
         this.contactList.clear();
         this.contactList.addAll(newList);
@@ -72,7 +71,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
 
         ImageView contactIcon, infoIcon;
         TextView contactName, contactEmail, contactNumber;
-        public ContactViewHolder(@NonNull View itemView) {
+        public ContactViewHolder(@NonNull View itemView) { //// Constructor to initialize the ViewHolder
             super(itemView);
 
             contactIcon = itemView.findViewById(R.id.contactIcon);
