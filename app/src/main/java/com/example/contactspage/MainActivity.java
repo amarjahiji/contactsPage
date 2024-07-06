@@ -14,11 +14,11 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button plusbutton, infoIcon;
+    private Button plusbutton;
     private RecyclerView recyclerView;
     private DatabaseHelper databaseHelper;
     private ContactAdapter contactAdapter;
-private SearchView searchBar;
+private SearchView searchBar ;
 
 
     @Override

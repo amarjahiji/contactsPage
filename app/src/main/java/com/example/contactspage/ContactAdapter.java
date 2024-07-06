@@ -36,7 +36,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
             ContactModel contactModel = contactList.get(position);
             String firstname = contactModel.getFirstname();
             String lastname = contactModel.getLastname();
-            String phonenumber = contactModel.getPhonenumber();
+             String phonenumber = contactModel.getPhonenumber();
             String email = contactModel.getEmail();
 
         holder.contactName.setText(firstname + " " + lastname);

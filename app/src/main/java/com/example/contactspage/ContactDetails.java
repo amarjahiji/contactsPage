@@ -48,4 +48,5 @@ public class ContactDetails extends AppCompatActivity {
         } else {
             contactEmail.setText(" ");
         }
-}}
+}
+}
