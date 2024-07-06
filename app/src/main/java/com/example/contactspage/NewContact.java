@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class NewContact extends AppCompatActivity {
 
-    private EditText firstName, lastName, phoneNumber, email;
+    private EditText firstName, lastName, number, email;
 
     private Button dismissbutton, savebutton;
 
@@ -21,7 +21,7 @@ public class NewContact extends AppCompatActivity {
 
         firstName = findViewById(R.id.firstName);
         lastName = findViewById(R.id.lastName);
-        phoneNumber = findViewById(R.id.phoneNumber);
+        number = findViewById(R.id.number);
         email = findViewById(R.id.email);
         savebutton = findViewById(R.id.savebutton);
         dismissbutton = findViewById(R.id.dismissbutton);
@@ -36,7 +36,7 @@ public class NewContact extends AppCompatActivity {
         savebutton.setOnClickListener(v -> {
             String fName = firstName.getText().toString().trim(); // Trim white spaces
             String lName = lastName.getText().toString().trim();
-            String phone = phoneNumber.getText().toString().trim();
+            String phone = number.getText().toString().trim();
             String eMail = email.getText().toString().trim();
 
             //setting the requirements to be able to create a new account
@@ -47,8 +47,8 @@ public class NewContact extends AppCompatActivity {
             }
 
             if (TextUtils.isEmpty(phone) || !phone.matches("^[+]*\\d+$")) {
-                phoneNumber.setError("Phone number must contain only digits and optional + sign");
-                phoneNumber.requestFocus();
+                number.setError("Phone number must contain only digits and optional + sign");
+                number.requestFocus();
                 return;
             }
                 //creating a contactmodel ovject and a databasehelper instance
@@ -60,7 +60,7 @@ public class NewContact extends AppCompatActivity {
             if (success) {
                 firstName.setText("");
                 lastName.setText("");
-                phoneNumber.setText("");
+                number.setText("");
                 email.setText("");
                 //when successfully creating account will send back to previous activity
                 finish();

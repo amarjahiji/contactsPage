@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
@@ -16,6 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMNLNAME = "LNAME";
     public static final String COLUMNPNUMBER = "PNUMBER";
     public static final String COLUMNEMAIL = "EMAIL";
+    private Context context;
 
     //constructor for dbhelper
     public DatabaseHelper(@Nullable Context context) {
@@ -48,7 +51,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //putting data in the object
         cv.put(COLUMNFNAME, contactModel.getFirstname());
         cv.put(COLUMNLNAME, contactModel.getLastname());
-        cv.put(COLUMNPNUMBER, contactModel.getPhonenumber());
+        cv.put(COLUMNPNUMBER, contactModel.getNumber());
         cv.put(COLUMNEMAIL, contactModel.getEmail());
 
         long insert = db.insert(CONTACT, null, cv);
@@ -108,4 +111,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
 
         return filteredList;
-}}
+}
+
+    public void deleteContact(String id) {
+        SQLiteDatabase db = getWritableDatabase();
+        long result = db.delete(CONTACT, "ID=?", new String[]{id});
+        db.close();
+
+        if (result == -1) {
+            Toast.makeText(context, "Failed to delete contact", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Contact deleted successfully", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+}

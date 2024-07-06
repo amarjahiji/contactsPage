@@ -6,19 +6,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
-
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHolder> {
 
     private Context context;
     private ArrayList<ContactModel> contactList;
+    private DatabaseHelper databaseHelper;
 
 
     public ContactAdapter(Context context, ArrayList<ContactModel> contactList) {
         this.context=context;
         this.contactList = contactList;
+        databaseHelper = new DatabaseHelper(context);
     }
 
     @NonNull
@@ -34,7 +37,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
             ContactModel contactModel = contactList.get(position);
             String firstname = contactModel.getFirstname();
             String lastname = contactModel.getLastname();
-             String phonenumber = contactModel.getPhonenumber();
+             String number = contactModel.getNumber();
             String email = contactModel.getEmail();
 
         holder.contactName.setText(firstname + " " + lastname);
@@ -45,12 +48,13 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         holder.infoIcon.setOnClickListener(v -> {
             Intent intent = new Intent(context, ContactDetails.class);
             intent.putExtra("contactName", contactModel.getFirstname() + " " + contactModel.getLastname());
-            intent.putExtra("phonenumber", phonenumber);
+            intent.putExtra("number", number);
             intent.putExtra("email", email);
             context.startActivity(intent);
 
 
         });
+
 
     }
 

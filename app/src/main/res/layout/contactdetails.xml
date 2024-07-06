@@ -37,10 +37,8 @@
                 android:layout_width="150dp"
                 android:layout_height="68dp"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="-1dp"
-                android:layout_marginEnd="262dp"
                 android:layout_marginBottom="153dp"
                 android:backgroundTint="#00FFFFFF"
                 android:fontFamily="@font/nunito_semibold"
@@ -48,6 +46,23 @@
                 android:textAlignment="viewStart"
                 android:textColor="#3699EF"
                 android:textSize="23sp" />
+
+            <Button
+                android:id="@+id/deletebutton"
+                android:layout_width="150dp"
+                android:layout_height="68dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="-1dp"
+                android:layout_marginLeft="400dp"
+                android:layout_marginEnd="-38dp"
+                android:layout_marginBottom="153dp"
+                android:backgroundTint="#00787878"
+                android:fontFamily="@font/nunito_semibold"
+                android:text="Delete"
+                android:textAlignment="viewStart"
+                android:textColor="@color/grey"
+                android:textSize="23sp" />
+
         </RelativeLayout>
 
 
@@ -66,12 +81,12 @@
 
         <TableLayout
             android:layout_width="424dp"
-            android:layout_height="156dp"
+            android:layout_height="172dp"
             android:layout_marginTop="50dp"
+            android:background="@color/blue"
             android:backgroundTint="@color/white"
             android:padding="20sp"
-            android:stretchColumns="2"
-            android:background="@color/blue">
+            android:stretchColumns="2">
 
 
             <TableRow
@@ -94,11 +109,12 @@
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_width="384dp"
+                android:layout_height="66dp"
                 android:layout_marginTop="30dp">
 
                 <TextView
+                    android:layout_height="match_parent"
                     android:fontFamily="@font/nunito_semibold"
                     android:text="Email:"
                     android:textSize="30sp"
@@ -106,7 +122,7 @@
 
                 <TextView
                     android:id="@+id/contactEmail"
-                    android:layout_width="237dp"
+                    android:layout_width="244dp"
                     android:layout_marginStart="10sp"
                     android:fontFamily="@font/nunito_sans_extralight"
                     android:padding="5sp"
@@ -115,6 +131,8 @@
             </TableRow>
 
         </TableLayout>
+
+
 
 
     </LinearLayout>

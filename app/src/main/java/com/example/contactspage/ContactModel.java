@@ -5,14 +5,14 @@ import androidx.annotation.NonNull;
 public class ContactModel {
     private String firstname;
     private String lastname;
-    private String phonenumber;
+    private String Number;
     private String Email;
 
     //constructor
-    public ContactModel(String firstname, String lastname,String phonenumber, String Email){
+    public ContactModel(String firstname, String lastname,String Number, String Email){
         this.firstname = firstname;
         this.lastname=lastname;
-        this.phonenumber=phonenumber;
+        this.Number=Number;
         this.Email=Email;
     }
 
@@ -26,7 +26,7 @@ public class ContactModel {
         return "ContactModel{"+
                 "firstname=" + firstname +
                 ", lastname='" + lastname + '\''+
-                ", phonenumber=" + phonenumber +
+                ", Number=" + Number +
                 ", Email=" + Email +
                 '}';
     }
@@ -49,12 +49,12 @@ public class ContactModel {
         this.lastname = lastname;
     }
 
-    public String getPhonenumber() {
-        return phonenumber;
+    public String getNumber() {
+        return Number;
     }
 
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
+    public void setNumber(String number) {
+        Number = number;
     }
 
     public String getEmail() {
