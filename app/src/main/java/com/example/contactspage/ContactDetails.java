@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,6 +30,7 @@ public class ContactDetails extends AppCompatActivity {
             startActivity(intent);
         });
 
+        contactId = getIntent().getStringExtra("contactId");
         String receivedName = getIntent().getStringExtra("contactName");
         if (receivedName != null) {
             contactName.setText(receivedName);
@@ -65,7 +65,7 @@ public class ContactDetails extends AppCompatActivity {
             finish();
         });
         builder.setNegativeButton("No", (dialog, which) -> {
-            // Do nothing if 'No' is clicked
+            // Do nothing if 'No' is clickedha
         });
         builder.create().show();
     }

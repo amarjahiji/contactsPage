@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class DatabaseHelper extends SQLiteOpenHelper {
     //defining table and column names
     public static final String CONTACT = "CONTACT";
+    public static final String COLUMNID = "ID";
     public static final String COLUMNFNAME = "FNAME";
     public static final String COLUMNLNAME = "LNAME";
     public static final String COLUMNPNUMBER = "PNUMBER";
@@ -23,6 +24,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //constructor for dbhelper
     public DatabaseHelper(@Nullable Context context) {
         super(context, "contacts.db", null, 1);
+        this.context = context;
     }
 
 
@@ -31,7 +33,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTable = "CREATE TABLE " + CONTACT
-                + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + " (" + COLUMNID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + COLUMNFNAME + " TEXT, "
                 + COLUMNLNAME + " TEXT, "
                 + COLUMNPNUMBER + " TEXT, "
@@ -71,6 +73,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {//going in each row in the cursor
             do {
                 ContactModel contactModel = new ContactModel(
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMNID)),
                         cursor.getString(cursor.getColumnIndexOrThrow(COLUMNFNAME)),
                         cursor.getString(cursor.getColumnIndexOrThrow(COLUMNLNAME)),
                         cursor.getString(cursor.getColumnIndexOrThrow(COLUMNPNUMBER)),
@@ -99,6 +102,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 ContactModel contactModel = new ContactModel(
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMNID)),
                         cursor.getString(cursor.getColumnIndexOrThrow(COLUMNFNAME)),
                         cursor.getString(cursor.getColumnIndexOrThrow(COLUMNLNAME)),
                         cursor.getString(cursor.getColumnIndexOrThrow(COLUMNPNUMBER)),

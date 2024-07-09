@@ -3,13 +3,15 @@ package com.example.contactspage;
 import androidx.annotation.NonNull;
 
 public class ContactModel {
+    private String id;
     private String firstname;
     private String lastname;
     private String Number;
     private String Email;
 
     //constructor
-    public ContactModel(String firstname, String lastname,String Number, String Email){
+    public ContactModel(String id, String firstname, String lastname,String Number, String Email){
+        this.id = id;
         this.firstname = firstname;
         this.lastname=lastname;
         this.Number=Number;
@@ -24,6 +26,7 @@ public class ContactModel {
     @NonNull
     public String toString(){
         return "ContactModel{"+
+                "id=" + id +
                 "firstname=" + firstname +
                 ", lastname='" + lastname + '\''+
                 ", Number=" + Number +
@@ -33,6 +36,10 @@ public class ContactModel {
 
 
     //setters getters
+
+    public String getId() { return id; } // Add this line
+
+    public void setId(String id) { this.id = id; }
     public String getFirstname() {
         return firstname;
     }

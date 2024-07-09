@@ -38,7 +38,7 @@ public class NewContact extends AppCompatActivity {
             String lName = lastName.getText().toString().trim();
             String phone = number.getText().toString().trim();
             String eMail = email.getText().toString().trim();
-
+            String id = null;
             //setting the requirements to be able to create a new account
             if (TextUtils.isEmpty(fName)) {
                 firstName.setError("First name cannot be empty");
@@ -52,7 +52,7 @@ public class NewContact extends AppCompatActivity {
                 return;
             }
                 //creating a contactmodel ovject and a databasehelper instance
-            ContactModel contactModel = new ContactModel(fName, lName, phone, eMail);
+            ContactModel contactModel = new ContactModel(id, fName, lName, phone, eMail);
             DatabaseHelper databaseHelper = new DatabaseHelper(NewContact.this);
             boolean success = databaseHelper.add(contactModel);
 

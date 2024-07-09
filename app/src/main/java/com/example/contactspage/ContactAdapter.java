@@ -47,6 +47,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
 
         holder.infoIcon.setOnClickListener(v -> {
             Intent intent = new Intent(context, ContactDetails.class);
+            intent.putExtra("contactId", contactModel.getId());
             intent.putExtra("contactName", contactModel.getFirstname() + " " + contactModel.getLastname());
             intent.putExtra("number", number);
             intent.putExtra("email", email);
